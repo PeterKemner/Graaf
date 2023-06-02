@@ -20,7 +20,11 @@ struct NodeComparable{
  */
 template<typename T>
 struct Comparable{
-    bool operator()(const T* lhs, const T* rhs) const{
-        return *lhs > *rhs;
+    bool operator()(const T lhs, const T rhs) const{
+        if (std::is_pointer<T>() == true){
+            return *lhs > *rhs;
+        }else{
+            return lhs > rhs;
+        }
     }
 };

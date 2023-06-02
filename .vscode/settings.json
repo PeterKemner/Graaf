@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\disaa\\Documents\\broncode\\AP_2023\\graaf",
+            "binaryPath": "c:\\Users\\disaa\\Documents\\broncode\\AP_2023\\graaf\\myapp",
+            "binaryArgs": []
+        }
+    ]
+}
