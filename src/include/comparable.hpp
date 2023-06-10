@@ -7,7 +7,7 @@
  */
 struct NodeComparable{
     bool operator()(const Node* lhs, const Node* rhs) const{
-        return *lhs > *rhs;
+        return lhs > rhs;
     }
 };
 

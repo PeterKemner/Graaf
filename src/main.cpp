@@ -7,7 +7,7 @@ int main(){
 
     //Hier maken we de Nodes van de voorbeeld graaf aan. Deze graaf lijkt op die in de slides, maar is directed.
 
-    Node a = Node("a",5); Node b = Node("b", 4); Node c = Node("c", 13); Node d = Node("d", 2); Node e = Node("e", 1); Node f = Node("f", 10);
+    Node a = Node("a"); Node b = Node("b"); Node c = Node("c"); Node d = Node("d"); Node e = Node("e"); Node f = Node("f");
     
     //Nadat we de Nodes hebben, kunnen we de edges tussen de nodes aanmaken
     Edge a1 = Edge(&a, &b, 4); Edge a2 = Edge(&a, &c, 3);    

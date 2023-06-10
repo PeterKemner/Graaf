@@ -9,6 +9,9 @@ class Edge{
     int cost;
 
     Edge(Node* from, Node* to, int cost);
+    virtual int getCost();
+    virtual Node* getFrom();
+    virtual Node* getTo();
 
     friend std::ostream &operator<<(std::ostream& os, Edge& edge);
 };

@@ -21,17 +21,10 @@ public:
     std::string label;
     std::vector<Edge*> edges;
     int afstandTotBron;
+    Node* vorigeNode;
 
     Node(std::string label);
-    Node(std::string label, int a):
-        label(label),
-        afstandTotBron(a)
-        {}
-
-    friend bool operator>(const Node& lhs, const Node& rhs){
-        return lhs.afstandTotBron > rhs.afstandTotBron;
-    }
-
+    std::vector<Node*> krijgBuren(Edge* vervoersmiddelen);
     friend std::ostream &operator<<(std::ostream &os, Node& node);
+    
 };
-
