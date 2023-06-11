@@ -4,6 +4,16 @@
             "cwd": "c:\\Users\\disaa\\Documents\\broncode\\AP_2023\\graaf",
             "binaryPath": "c:\\Users\\disaa\\Documents\\broncode\\AP_2023\\graaf\\myapp",
             "binaryArgs": []
+        },
+        {
+            "cwd": "c:\\Users\\peter\\OneDrive\\Bureaublad\\VSC\\C++\\Graaf",
+            "binaryPath": "c:\\Users\\peter\\OneDrive\\Bureaublad\\VSC\\C++\\Graaf\\myapp",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "c:\\Users\\peter\\OneDrive\\Bureaublad\\VSC\\C++\\Graaf",
+            "binaryPath": "c:\\Users\\peter\\OneDrive\\Bureaublad\\VSC\\C++\\Graaf\\main",
+            "binaryArgs": []
         }
     ],
     "files.associations": {

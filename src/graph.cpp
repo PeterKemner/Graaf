@@ -34,19 +34,32 @@ void Graph::evalueerBuren(Node* huidigstation) {
 	}
 }
 
+std::vector<Node*> Graph::getNeighbour(Node* huidigstation){
+    std::vector<Node*> neighbours;
+    for(Node* i: this->nodes){
+            for(Edge* y: this->edges){
+                if(getEdgeBetweenNodes(huidigstation, i) == y){
+                    neighbours.push_back(y->getTo()); 
+                };
+            }
+        }
+    return neighbours;
+    }
+
 std::vector<Node*> Graph::dijkstra(Node* start, Node* end){
-    std::vector<Node*> dist{nodes};
-    std::vector<Node*> prev{nodes};
+    std::vector<Node*> dist;
+    std::vector<Node*> prev;
 
     start->afstandTotBron = 0;
     std::priority_queue<Node*, std::vector<Node*>, NodeComparable> nogTeEvaluerenStations;
 
     for(Node* v: this->nodes){
         if(v != start){
-            dist[v->afstandTotBron] = INT_MAX;
-            // prev[] = "Unidentified";
+            v->afstandTotBron = INT_MAX;
+            dist.push_back(v);
+            v->vorigeNode = nullptr;
+            prev.push_back(v);
         }
-        nogTeEvaluerenStations.push(v, dist[v]);
     }
 
 	nogTeEvaluerenStations.push(start);
@@ -54,13 +67,14 @@ std::vector<Node*> Graph::dijkstra(Node* start, Node* end){
 		Node* huidigstation = nogTeEvaluerenStations.top();
 		evalueerBuren(huidigstation);
 		nogTeEvaluerenStations.pop();
-        for (){
-            int alt = dist[huidigstation->afstandTotBron] + getEdgeBetweenNodes(u, v);
-            if (alt < dist[v]){
-                dist[v->afstandTotBron] = alt;
-                prev[v] = u; 
-                nogTeEvaluerenStations.decrease_priority(v, alt);
+        for (int h = 0; h < getNeighbour(huidigstation).size() + 1, h++;){
+            int alt = huidigstation->afstandTotBron + getEdgeBetweenNodes(huidigstation, getNeighbour(huidigstation)[h])->getCost();
+            if (alt < huidigstation->afstandTotBron){
+                huidigstation->afstandTotBron = alt;
+                huidigstation->vorigeNode = getNeighbour(huidigstation)[h];
+                // nogTeEvaluerenStations.pop(huidigstation->vorigeNode);
             }
         }
     }
+    return dist, prev;
 }

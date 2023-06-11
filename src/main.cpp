@@ -35,12 +35,12 @@ int main(){
     );
 
     for(auto& i : g.nodes){
-        g.nodeQueue.push(i);
+        g.nogTeEvaluerenStations.push(i);
     }
 
-    while(!g.nodeQueue.empty()){
-        std::cout << g.nodeQueue.top()->label << " : " << g.nodeQueue.top()->afstandTotBron << std::endl;
-        g.nodeQueue.pop();
+    while(!g.nogTeEvaluerenStations.empty()){
+        std::cout << g.nogTeEvaluerenStations.top()->label << " : " << g.nogTeEvaluerenStations.top()->afstandTotBron << std::endl;
+        g.nogTeEvaluerenStations.pop();
     }
 
     Edge* edgebetweennodes= g.getEdgeBetweenNodes(&a, &b);

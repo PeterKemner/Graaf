@@ -24,7 +24,10 @@ public:
     Node* vorigeNode;
 
     Node(std::string label);
-    std::vector<Node*> krijgBuren(Edge* vervoersmiddelen);
+    Node(std::string label, int a):
+    label(label),
+    afstandTotBron(a)
+    {}
     friend std::ostream &operator<<(std::ostream &os, Node& node);
     
 };

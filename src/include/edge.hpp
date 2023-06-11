@@ -8,6 +8,8 @@ class Edge{
     Node* to;
     int cost;
 
+
+    Edge();
     Edge(Node* from, Node* to, int cost);
     virtual int getCost();
     virtual Node* getFrom();

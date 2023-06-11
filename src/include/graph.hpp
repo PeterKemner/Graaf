@@ -15,5 +15,6 @@ class Graph{
     Edge* getEdgeBetweenNodes(Node* from, Node* to);
     int getCostOfPath(std::vector<Node*> nodesToVisit);
     void evalueerBuren(Node* huidigstation);
+    std::vector<Node*> getNeighbour(Node* huidigstation);
     std::vector<Node*>dijkstra(Node* start, Node* end);
 };
