@@ -70,6 +70,11 @@ std::vector<Node*> Graph::dijkstra(Node* start, Node* end){
         for (int h = 0; h < getNeighbour(huidigstation).size() + 1, h++;){
             int alt = huidigstation->afstandTotBron + getEdgeBetweenNodes(huidigstation, getNeighbour(huidigstation)[h])->getCost();
             if (alt < huidigstation->afstandTotBron){
+                for(int j = 0; j < prev.size() + 1; j++){
+                    if (prev[j]->label == huidigstation->label){
+                        prev.erase(prev.begin()+(j-1));
+                    }
+                }
                 huidigstation->afstandTotBron = alt;
                 huidigstation->vorigeNode = getNeighbour(huidigstation)[h];
                 // nogTeEvaluerenStations.pop(huidigstation->vorigeNode);

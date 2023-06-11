@@ -1,25 +1,27 @@
 #include <iostream>
-#include "include/node.hpp"
-#include "include/edge.hpp"
-#include "include/graph.hpp"
+#include "src\include\node.hpp"
+#include "src\include\edge.hpp"
+#include "src\include\graph.hpp" 
+#include "src\include\vlucht.hpp"
+#include "src\include\autorit.hpp" 
+#include "src\include\treinrit.hpp"  
 
 int main(){
 
     //Hier maken we de Nodes van de voorbeeld graaf aan. Deze graaf lijkt op die in de slides, maar is directed.
 
-    Node a = Node("a"); Node b = Node("b"); Node c = Node("c"); Node d = Node("d"); Node e = Node("e"); Node f = Node("f");
+    Node a = Node("a",5); Node b = Node("b", 1); Node c = Node("c", 130); Node d = Node("d", 1); Node e = Node("e", 100); Node f = Node("f", 10);
     
     //Nadat we de Nodes hebben, kunnen we de edges tussen de nodes aanmaken
-    Edge a1 = Edge(&a, &b, 4); Edge a2 = Edge(&a, &c, 3);    
-    Edge b1 = Edge(&b, &c, 5); Edge b2 = Edge(&b, &d, 2);
-    Edge c1 = Edge(&c, &d, 3); Edge c2 = Edge(&c, &e, 1);    
-    Edge d1 = Edge(&d, &f, 1); 
-    Edge e1 = Edge(&e, &d, 1); Edge e2 = Edge(&e, &f, 3);   
+    Autorit a1 = Autorit(&a, &b, 1); Autorit a2 = Autorit(&a, &c, 300);    
+    Autorit b1 = Autorit(&b, &c, 500); Autorit b2 = Autorit(&b, &d, 1);
+    Autorit c1 = Autorit(&c, &d, 300); Autorit c2 = Autorit(&c, &e, 100);    
+    Autorit d1 = Autorit(&d, &f, 1); 
+    Autorit e1 = Autorit(&e, &d, 001); Autorit e2 = Autorit(&e, &f, 300);   
 
     //Dan voegen de we edges weer toe aan het vector<Edge*> edges attribuut van de nodes.
     a.edges.push_back(&a1); 
     a.edges.push_back(&a2);
-    
     b.edges.push_back(&b1);
     b.edges.push_back(&b2);
     c.edges.push_back(&c1);
@@ -44,15 +46,12 @@ int main(){
     }
 
     Edge* edgebetweennodes= g.getEdgeBetweenNodes(&a, &b);
-    //Als er geen Edge tussen de meegegeven nodes bestaat, returnt de functie een null pointer (soort None uit python)
-    if(edgebetweennodes!=nullptr){
-        std::cout << edgebetweennodes << std::endl;
-    }else{
-        std::cout << "Er bestaat geen edge tussen deze nodes";
-    }
 
     std::vector<Node*> nodesInPath = {&a, &b, &c, &d, &f};
 
     std::cout << "Cost of path " << g.getCostOfPath(nodesInPath) << "\n";
 
+    for(Node* x: g.dijkstra(&a, &f)){
+        std::cout << x->label << "\n";
+    }
 }
